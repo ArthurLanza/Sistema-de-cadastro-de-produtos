@@ -30,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $connection->close();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -39,20 +40,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Cadastrar Produto</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Cadastrar Novo Produto</h1>
-        <form action="cadastro_produto.php" method="post">
-            <label>Nome do produto:</label>
-            <input type="text" name="nome" required>
 
-            <label>Quantidade:</label>
-            <input type="number" min="0" name="quantidade" required>
+<!-- Botão de Voltar -->
+<a href="index.php" id="btn-voltar" class="btn voltar-btn">← Voltar</a>
 
-            <label>Valor por unidade:</label>
-            <input type="number" min="0" step="0.01" name="valor" required>
+<div class="container">
+    <h1>Cadastrar Novo Produto</h1>
+    <form action="cadastro_produto.php" method="post">
+        <label>Nome do produto:</label>
+        <input type="text" name="nome" required>
 
-            <input type="submit" value="Cadastrar Produto">
-        </form>
-    </div>
+        <label>Quantidade:</label>
+        <input type="number" min="0" name="quantidade" required>
+
+        <label>Valor por unidade:</label>
+        <input type="number" min="0" step="0.01" name="valor" required>
+
+        <input type="submit" value="Cadastrar Produto">
+    </form>
+</div>
+
 </body>
 </html>
