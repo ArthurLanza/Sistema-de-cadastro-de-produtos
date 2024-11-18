@@ -14,6 +14,7 @@ function exibirProdutos() {
                 <table class='product-table'>
                     <thead>
                         <tr>
+                            <th>ID</th>
                             <th>Nome do Produto</th>
                             <th>Quantidade</th>
                             <th>Valor por Unidade (R$)</th>
@@ -31,9 +32,10 @@ function exibirProdutos() {
 
             echo "
                 <tr>
-                    <td><input type='text' class='input-field $id' value='$nome'></td>
-                    <td><input type='number' class='input-field $id' value='$quantidade'></td>
-                    <td><input type='number' class='input-field $id' value='$valor' step='0.01'></td>
+                    <td>$id</td>
+                    <td>$nome</td>
+                    <td>$quantidade</td>
+                    <td>R$ " . number_format($valor, 2, ',', '.') . "</td>
                     <td>
                         <button class='btn save-btn' onclick='atualizarDados($id)'>Alterar</button>
                         <button class='btn delete-btn' onclick='apagarDados($id)'>Apagar</button>
