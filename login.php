@@ -6,26 +6,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
+    // Consulta para buscar o usuário no banco de dados
     $sql = "SELECT * FROM usuarios WHERE username = '$username'";
     $result = $connection->query($sql);
 
+    // Verifica se o usuário existe
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
 
-        // Verifica a senha
+        // Verifica a senha usando password_verify
         if (password_verify($password, $user['password'])) {
-            $_SESSION['loggedin'] = true;
-            $_SESSION['username'] = $username;
+            // Define a sessão e redireciona para a página do sistema
+            $_SESSION['username'] = $user['username'];
             header("Location: index.php");
-            exit();
+            exit;
         } else {
-            echo "<script>document.getElementById('login-error').textContent = 'Senha incorreta.';</script>";
+            $error = "Senha incorreta!";
         }
     } else {
-        echo "<script>document.getElementById('login-error').textContent = 'Usuário não encontrado.';</script>";
+        $error = "Usuário não encontrado!";
     }
-
-    $connection->close();
 }
 ?>
 
