@@ -32,7 +32,6 @@ if (!isset($_SESSION['username'])) {
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             text-align: center;
-            position: relative;
         }
 
         h1 {
@@ -67,17 +66,32 @@ if (!isset($_SESSION['username'])) {
             flex-direction: column;
             gap: 15px;
         }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0d6efd;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #0a58ca;
+        }
     </style>
 </head>
 <body>
+    <button class="logout-btn" onclick="window.location.href='logout.php'">Logout</button>
     <div class="container">
-        <button class="logout-btn" onclick="window.location.href='logout.php'">Logout</button>
         <h1>Bem-vindo ao Sistema de Cadastro de Produtos!</h1>
         <p class="welcome">Olá, <?= $_SESSION['username'] ?>!</p>
         <div class="content">
             <p>Gerencie seus produtos com facilidade.</p>
             <a href="tabela.php" class="btn">Ver Produtos</a>
-            <a href="cadastro.php" class="btn">Cadastrar Novo Produto</a>
+            <a href="cadastro_produto.php" class="btn">Cadastrar Novo Produto</a>
         </div>
     </div>
 </body>
