@@ -51,6 +51,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="submit" value="Entrar">
         </form>
         <div id="login-error"></div>
+        <p>Não tem uma conta? <a href="register.php">Cadastre-se aqui</a></p>
     </div>
 </body>
 </html>
+
